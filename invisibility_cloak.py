@@ -48,7 +48,7 @@ while (cap.isOpened()):
     mask_1 = cv2.morphologyEx(mask_1, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
     mask_1 = cv2.morphologyEx(mask_1, cv2.MORPH_DILATE, np.ones((3, 3), np.uint8))
 
-    #Seleccionar solo la parte que no tiene mask 1 y guardarlo en mask 2.
+    #Seleccionar solo la parte que no tiene mask 1 y guardarla en mask 2.
     mask_2 = cv2.bitwise_not(mask_1)
 
     #Guardar solo la parte de las imágenes sin color rojo. 
@@ -61,7 +61,7 @@ while (cap.isOpened()):
     #Generar el output final, y fusionando res_1 y res_2.
     final_output = cv2.addWeighted(res_1, 1, res_2, 1, 0)
     output_file.write(final_output)
-    #Mostrat el output al usuario.
+    #Mostrar el output al usuario.
     cv2.imshow("magia", final_output)
     cv2.waitKey(1)
 
